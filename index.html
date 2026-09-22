@@ -1,50 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repon Sir Biology Care | HSC 2028 Academic Platform</title>
+    <title>Repon Sir | Premier HSC Biology Academy Rangpur</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Chart.js for Student Performance Metrics -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        emeraldDark: '#010f0a',
-                        emeraldBase: '#031a13',
-                        emeraldMid: '#082b20',
-                        emeraldLight: '#0f4232',
-                        neonAccent: '#10B981',
-                        neonGlow: '#00FF9D',
-                        cyanGlow: '#00F0FF',
-                        navyDeep: '#05101e',
-                        bioPurple: '#7c3aed',
-                        glassBorder: 'rgba(16, 185, 129, 0.22)'
+                        emeraldBio: '#052e16',
+                        darkNavy: '#020617',
+                        navyGlass: 'rgba(15, 23, 42, 0.75)',
+                        glowEmerald: '#10b981',
+                        accentCyan: '#06b6d4',
+                        bioAccent: '#0d9488'
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace']
+                        heading: ['Outfit', 'sans-serif']
                     },
                     animation: {
-                        'pulse-glow': 'pulseGlow 3s infinite ease-in-out',
-                        'float': 'float 6s infinite ease-in-out',
-                        'spin-slow': 'spin 18s linear infinite'
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
                     },
                     keyframes: {
-                        pulseGlow: {
-                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
-                            '50%': { opacity: '0.8', transform: 'scale(1.05)' }
-                        },
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-12px)' }
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 15px rgba(16, 185, 129, 0.3)' },
+                            '100%': { boxShadow: '0 0 35px rgba(16, 185, 129, 0.8), 0 0 15px rgba(6, 182, 212, 0.5)' }
                         }
                     }
                 }
@@ -53,1125 +51,580 @@
     </script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #010f0a;
-            color: #E2E8F0;
+            background-color: #020617;
+            color: #f8fafc;
             overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
         }
 
-        /* Glassmorphism Classes */
         .glass-card {
-            background: rgba(8, 43, 32, 0.45);
+            background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(16, 185, 129, 0.22);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
-        .glass-nav {
-            background: rgba(1, 15, 10, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .glass-modal {
-            background: rgba(3, 26, 19, 0.95);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(0, 255, 157, 0.3);
+        .glass-card-hover:hover {
+            transform: translateY(-6px);
+            border-color: rgba(16, 185, 129, 0.6);
+            box-shadow: 0 12px 40px rgba(16, 185, 129, 0.25);
         }
 
-        .neon-text-glow {
-            text-shadow: 0 0 10px rgba(0, 255, 157, 0.6), 0 0 22px rgba(0, 240, 255, 0.4);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #010f0a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #0f4232;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #10B981;
-        }
-
-        /* Interactive Bio-Neural Canvas */
-        #bio-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.9;
-        }
-
-        /* Reveal Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Custom Cursor Follower */
-        #cursor-dot {
+        #cursor-dot, #cursor-bg {
             pointer-events: none;
             position: fixed;
             top: 0;
             left: 0;
             border-radius: 50%;
             z-index: 9999;
-            transition: transform 0.06s ease-out;
+            transition: transform 0.1s ease-out;
+        }
+        #cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            box-shadow: 0 0 10px #10b981;
+        }
+        #cursor-bg {
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid rgba(16, 185, 129, 0.5);
+            transition: transform 0.25s ease-out;
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #047857;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+
+        .text-glow {
+            text-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
         }
     </style>
 </head>
-<body class="relative selection:bg-emerald-500 selection:text-black">
+<body class="selection:bg-emerald-600 selection:text-white">
 
-    <!-- Custom Cursor -->
-    <div id="cursor-dot" class="w-6 h-6 bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 opacity-70 blur-[1px] hidden md:block"></div>
+    <canvas id="bg-canvas"></canvas>
+    
+    <div id="cursor-dot" class="hidden md:block"></div>
+    <div id="cursor-bg" class="hidden md:block"></div>
 
-    <!-- Dynamic Bioluminescent Cellular & Neural Canvas -->
-    <canvas id="bio-canvas"></canvas>
-
-    <!-- Floating Ambient Bio Glow Effects -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute top-1/4 left-10 w-80 h-80 bg-emerald-600/10 rounded-full blur-3xl animate-pulse-glow"></div>
-        <div class="absolute bottom-1/3 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse-glow" style="animation-delay: 1.5s;"></div>
+    <!-- HSC Admissions Banner -->
+    <div class="bg-gradient-to-r from-emerald-900 via-teal-800 to-emerald-950 text-emerald-100 py-2.5 px-4 text-center font-medium text-sm flex items-center justify-center gap-3 border-b border-emerald-500/30 relative z-30 shadow-lg">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500 text-slate-950 animate-pulse">NEW BATCH</span>
+        <span class="tracking-wide font-heading">🔬 <strong>HSC Admissions Open!</strong> Limited Seats Available for Botany & Zoology Mastery.</span>
+        <a href="#schedule" class="underline hover:text-emerald-300 text-xs ml-2 font-bold transition-colors">View Schedule &rarr;</a>
     </div>
 
-    <!-- Background Bio-Effect Control Widget -->
-    <div class="fixed bottom-5 left-5 z-40 glass-card px-3.5 py-2.5 rounded-2xl border border-emerald-500/30 shadow-2xl flex items-center gap-3">
-        <div class="flex items-center gap-2 text-xs font-mono text-emerald-300">
-            <i data-lucide="microscope" class="w-4 h-4 text-emerald-400 animate-pulse"></i>
-            <span class="hidden sm:inline">Bio Matrix:</span>
-        </div>
-        <div class="flex items-center gap-1.5 text-xs">
-            <button onclick="setBioMode('neural')" id="mode-btn-neural" class="px-2.5 py-1 rounded-lg font-medium transition-all bg-emerald-500 text-emeraldDark font-semibold shadow">
-                Neural Net
-            </button>
-            <button onclick="setBioMode('cellular')" id="mode-btn-cellular" class="px-2.5 py-1 rounded-lg font-medium transition-all text-slate-300 hover:text-white hover:bg-emerald-900/40">
-                Micro-Cellular
-            </button>
-            <button onclick="setBioMode('biolum')" id="mode-btn-biolum" class="px-2.5 py-1 rounded-lg font-medium transition-all text-slate-300 hover:text-white hover:bg-emerald-900/40">
-                Deep Biolum
-            </button>
-        </div>
-    </div>
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-emerald-900/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 border border-emerald-300/30">
+                        <i class="fa-solid fa-dna text-2xl text-slate-950"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-xl tracking-tight text-white block">REPON SIR <span class="text-emerald-400">BIOLOGY</span></span>
+                        <span class="text-[10px] tracking-widest text-emerald-400 font-semibold uppercase block -mt-1">Premier HSC Biology Academy</span>
+                    </div>
+                </div>
 
-    <div class="relative z-10 flex flex-col min-h-screen">
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#about" class="text-slate-300 hover:text-emerald-400 transition-colors">About Repon Sir</a>
+                    <a href="#schedule" class="text-slate-300 hover:text-emerald-400 transition-colors">Batch Times</a>
+                    <a href="#fee-calculator" class="text-slate-300 hover:text-emerald-400 transition-colors">Fees & bKash</a>
+                    <a href="#location" class="text-slate-300 hover:text-emerald-400 transition-colors">Contact & Map</a>
+                </div>
 
-        <!-- Navigation Header -->
-        <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-20">
-                    <!-- Brand Logo -->
-                    <a href="#" class="flex items-center gap-3 group">
-                        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-500 via-teal-400 to-cyan-400 p-0.5 shadow-lg group-hover:shadow-emerald-500/50 transition-all duration-300">
-                            <div class="w-full h-full bg-emeraldDark rounded-[10px] flex items-center justify-center">
-                                <i data-lucide="dna" class="w-6 h-6 text-emerald-400 group-hover:rotate-45 transition-transform duration-500"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <span class="text-xl font-extrabold tracking-wider text-white block leading-none">
-                                REPON SIR <span class="text-emerald-400 font-normal text-xs uppercase tracking-widest block mt-0.5">BIOLOGY CARE</span>
-                            </span>
-                            <span class="text-[10px] text-emerald-300/70 font-mono tracking-tighter">Academic Care & Mentorship • HSC 2028</span>
-                        </div>
+                <div class="hidden md:flex items-center space-x-3" id="nav-auth-buttons">
+                    <button onclick="openModal('loginModal')" class="px-4 py-2 rounded-xl text-emerald-400 hover:text-white hover:bg-emerald-950/50 border border-emerald-500/30 font-semibold text-sm transition-all">
+                        <i class="fa-solid fa-right-to-bracket mr-1.5"></i> Student Login
+                    </button>
+                    <button onclick="openModal('registerModal')" class="px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-slate-950 font-bold text-sm shadow-md shadow-emerald-600/30 transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-user-plus mr-1.5"></i> Register Now
+                    </button>
+                </div>
+
+                <div class="md:hidden flex items-center gap-2">
+                    <button onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400 p-2 text-2xl focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-950/95 border-b border-emerald-900/50 px-4 pt-3 pb-6 space-y-3">
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-emerald-400 py-2 text-base font-medium">About Repon Sir</a>
+            <a href="#schedule" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-emerald-400 py-2 text-base font-medium">Batch Times</a>
+            <a href="#fee-calculator" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-emerald-400 py-2 text-base font-medium">Fees & bKash</a>
+            <a href="#location" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-emerald-400 py-2 text-base font-medium">Contact & Location</a>
+            <div class="pt-4 border-t border-emerald-900/40 flex flex-col gap-2.5">
+                <button onclick="toggleMobileMenu(); openModal('loginModal')" class="w-full py-2.5 rounded-xl border border-emerald-500/30 text-emerald-400 font-semibold text-sm">Student Login</button>
+                <button onclick="toggleMobileMenu(); openModal('registerModal')" class="w-full py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-sm">Register Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Premier HSC Biology Academy • Rangpur
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-heading leading-tight">
+                    Master HSC Biology with <br/>
+                    <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent text-glow">
+                        MD. Moksedur Rahman Repon
+                    </span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-slate-300 font-medium max-w-2xl">
+                    Popularly known as <strong class="text-emerald-400">"Repon Sir"</strong>. Empowering students in both <span class="text-emerald-300 font-semibold">Botany</span> and <span class="text-teal-300 font-semibold">Zoology</span> through deep conceptual clarity.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                    <span class="px-3.5 py-1.5 rounded-lg glass-card text-slate-200 text-xs font-medium border-emerald-500/20 flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap text-emerald-400"></i> Assistant Professor, Zoology
+                    </span>
+                    <span class="px-3.5 py-1.5 rounded-lg glass-card text-slate-200 text-xs font-medium border-emerald-500/20 flex items-center gap-2">
+                        <i class="fa-solid fa-building-columns text-emerald-400"></i> Rangpur Govt. College
+                    </span>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <button onclick="openModal('registerModal')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 text-slate-950 font-extrabold text-base shadow-xl shadow-emerald-500/25 hover:shadow-emerald-500/40 transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-bolt"></i> HSC Admission
+                    </button>
+                    <a href="#schedule" class="w-full sm:w-auto px-7 py-4 rounded-xl glass-card hover:bg-slate-900/80 text-emerald-300 font-bold text-base border-emerald-500/30 text-center transition-all flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-clock"></i> View Batch Schedules
                     </a>
-
-                    <!-- Navigation Links -->
-                    <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                        <a href="#about" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5"><i data-lucide="user" class="w-4 h-4"></i> Profile</a>
-                        <a href="#courses" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5"><i data-lucide="book-open" class="w-4 h-4"></i> Curriculum</a>
-                        <a href="#fees" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5"><i data-lucide="calculator" class="w-4 h-4"></i> Fee Calculator</a>
-                        <a href="#contact" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4"></i> Location</a>
-                    </nav>
-
-                    <!-- Auth Action Buttons -->
-                    <div class="hidden md:flex items-center space-x-4">
-                        <button onclick="openLoginModal()" class="px-4 py-2 rounded-lg text-sm font-semibold text-emerald-300 hover:text-white hover:bg-emerald-800/40 border border-emerald-500/30 transition-all flex items-center gap-1.5">
-                            <i data-lucide="log-in" class="w-4 h-4"></i> Student Login
-                        </button>
-                        <button onclick="openRegisterModal()" class="px-5 py-2 rounded-lg text-sm font-semibold bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 hover:opacity-90 text-emeraldDark shadow-lg shadow-emerald-900/40 hover:shadow-emerald-500/30 transition-all transform hover:-translate-y-0.5 flex items-center gap-1.5">
-                            <i data-lucide="user-plus" class="w-4 h-4"></i> New Admission
-                        </button>
-                    </div>
-
-                    <!-- Mobile Hamburger -->
-                    <div class="md:hidden">
-                        <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-300 hover:text-emerald-400 hover:bg-emerald-900/30 focus:outline-none">
-                            <i data-lucide="menu" class="w-6 h-6"></i>
-                        </button>
-                    </div>
                 </div>
             </div>
 
-            <!-- Mobile Nav Dropdown -->
-            <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-emerald-800/30 px-4 pt-3 pb-6 space-y-3">
-                <a href="#about" class="block py-2 text-slate-300 hover:text-emerald-400 font-medium">Teacher Profile</a>
-                <a href="#courses" class="block py-2 text-slate-300 hover:text-emerald-400 font-medium">Curriculum Modules</a>
-                <a href="#fees" class="block py-2 text-slate-300 hover:text-emerald-400 font-medium">Fee Structure & Calculator</a>
-                <a href="#contact" class="block py-2 text-slate-300 hover:text-emerald-400 font-medium">Contact & Location</a>
-                <div class="pt-3 border-t border-emerald-800/30 flex flex-col space-y-2">
-                    <button onclick="openLoginModal()" class="w-full py-2.5 rounded-lg text-center font-semibold text-emerald-300 border border-emerald-500/30">Student Login</button>
-                    <button onclick="openRegisterModal()" class="w-full py-2.5 rounded-lg text-center font-semibold bg-emerald-500 text-emeraldDark">HSC 2028 New Admission</button>
-                </div>
-            </div>
-        </header>
-
-        <!-- Hero Section -->
-        <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-12 gap-12 items-center">
-                    
-                    <!-- Hero Content Left -->
-                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal">
-                        <!-- Updated Admission Badge -->
-                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-emerald-400/40 text-emerald-300 text-xs font-bold uppercase tracking-wider">
-                            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
-                            HSC 2028 ADMISSIONS OPEN
-                        </div>
-                        
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                            Master <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 neon-text-glow">Botany & Zoology</span> With Pure Concept Clarity
-                        </h1>
-                        <p class="text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                            Premier academic care and continuous progress tracking for HSC Biology students under the direct guidance of <span class="text-emerald-300 font-semibold">Repon Sir</span>. Tailored for HSC Board Exam excellence & Medical admission foundation.
-                        </p>
-
-                        <!-- Key Highlights Grid -->
-                        <div class="grid grid-cols-3 gap-3 pt-2 max-w-md mx-auto lg:mx-0">
-                            <div class="glass-card p-3.5 rounded-xl text-center border border-emerald-500/20">
-                                <div class="text-xl font-extrabold text-emerald-400">HSC 2028</div>
-                                <div class="text-[11px] text-slate-400 mt-0.5">Fresh Batch Open</div>
-                            </div>
-                            <div class="glass-card p-3.5 rounded-xl text-center border border-emerald-500/20">
-                                <div class="text-xl font-extrabold text-teal-300">100%</div>
-                                <div class="text-[11px] text-slate-400 mt-0.5">Regular Class Exams</div>
-                            </div>
-                            <div class="glass-card p-3.5 rounded-xl text-center border border-emerald-500/20">
-                                <div class="text-xl font-extrabold text-cyan-300">Rangpur</div>
-                                <div class="text-[11px] text-slate-400 mt-0.5">Premier Care</div>
-                            </div>
-                        </div>
-
-                        <!-- Action Callouts -->
-                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                            <button onclick="openRegisterModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-400 text-emeraldDark shadow-xl shadow-emerald-900/50 hover:shadow-emerald-500/40 hover:scale-[1.02] transition-all flex items-center justify-center gap-2">
-                                <i data-lucide="sparkles" class="w-5 h-5"></i> Enroll for HSC 2028 (BDT 2000)
-                            </button>
-                            <a href="#fees" class="w-full sm:w-auto px-7 py-4 rounded-xl font-semibold glass-card border border-emerald-500/30 hover:border-emerald-400 text-emerald-300 hover:text-white transition-all flex items-center justify-center gap-2">
-                                <i data-lucide="calculator" class="w-5 h-5"></i> Fee Calculator
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Hero Profile Card Right -->
-                    <div class="lg:col-span-5 flex justify-center reveal">
-                        <div class="relative w-full max-w-md">
-                            <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 rounded-3xl blur-xl opacity-50 animate-pulse-glow"></div>
-                            
-                            <div class="relative glass-card rounded-3xl p-6 sm:p-8 text-center border border-emerald-400/40 shadow-2xl">
-                                <!-- Photo Frame -->
-                                <div class="relative w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden border-2 border-emerald-400/60 shadow-2xl group">
-                                    <img src="https://objectstorage.ap-dcc-gazipur-1.oraclecloud15.com/n/axvjbnqprylg/b/V2Ministry/o/office-rangpur-college/2024/12/567f7d0813be47d6a750d6c5e9ee4608.jpg" 
-                                         alt="MD. Moksedur Rahman Repon Sir" 
-                                         class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                                         onerror="this.src='https://placehold.co/400x400/082b20/10B981?text=Repon+Sir'">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-emeraldDark via-transparent to-transparent opacity-40"></div>
-                                </div>
-
-                                <div class="inline-block px-3 py-1 rounded-md bg-emerald-950/80 border border-emerald-500/30 text-emerald-400 font-mono text-xs mb-2">
-                                    HEAD MENTOR & ASSISTANT PROFESSOR
-                                </div>
-
-                                <h2 class="text-2xl font-bold text-white tracking-wide">MD. MOKSEDUR RAHMAN REPON</h2>
-                                <p class="text-emerald-400 font-medium text-sm mt-1">"Repon Sir"</p>
-                                
-                                <div class="mt-4 pt-4 border-t border-emerald-800/40 text-left space-y-2 text-xs text-slate-300">
-                                    <div class="flex items-start gap-2">
-                                        <i data-lucide="award" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                                        <span><strong>Assistant Professor</strong>, Dept. of Zoology, Rangpur Government College</span>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <i data-lucide="graduation-cap" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                                        <span>Alumnus: <strong>Govt. Azizul Haque College</strong> & <strong>University of Rajshahi</strong></span>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <i data-lucide="book-open-check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                                        <span>Teaches both <strong>Botany</strong> and <strong>Zoology</strong> for HSC 2026, 2027 & 2028</span>
-                                    </div>
-                                </div>
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-md">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-3xl blur-2xl opacity-40 animate-pulse-slow"></div>
+                    <div class="relative glass-card rounded-3xl p-4 sm:p-5 border-emerald-400/30 shadow-2xl overflow-hidden group">
+                        <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900">
+                            <img src="https://objectstorage.ap-dcc-gazipur-1.oraclecloud15.com/n/axvjbnqprylg/b/V2Ministry/o/office-rangpur-college/2024/12/567f7d0813be47d6a750d6c5e9ee4608.jpg" 
+                                 alt="MD. Moksedur Rahman Repon - Repon Sir" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/400x500/052e16/10b981?text=Repon+Sir+Portrait';"
+                                 class="w-full h-full object-cover object-top transform transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute bottom-3 left-3 right-3 bg-slate-950/80 backdrop-blur-md border border-emerald-500/30 p-3.5 rounded-xl">
+                                <h3 class="text-base font-bold text-white font-heading">MD. Moksedur Rahman Repon</h3>
+                                <p class="text-xs text-emerald-400 font-medium">Assistant Professor, Rangpur Govt. College</p>
                             </div>
                         </div>
                     </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- About Mentorship Section -->
-        <section id="about" class="py-20 relative border-t border-emerald-900/30">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                    <h2 class="text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-2">Academic Pedagogy</h2>
-                    <p class="text-3xl sm:text-4xl font-extrabold text-white">Why HSC Biology Students Excel Here</p>
-                    <div class="w-20 h-1 bg-gradient-to-r from-emerald-500 to-cyan-400 mx-auto mt-4 rounded-full"></div>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="glass-card p-8 rounded-2xl border border-emerald-500/20 hover:border-emerald-400/50 transition-all duration-300 group hover:-translate-y-1 reveal">
-                        <div class="w-14 h-14 rounded-xl bg-emerald-900/60 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
-                            <i data-lucide="microscope" class="w-7 h-7"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Govt. Faculty Experience</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            Taught by an Assistant Professor from Rangpur Government College with deep experience in HSC board question patterns and evaluation standards.
-                        </p>
-                    </div>
-
-                    <div class="glass-card p-8 rounded-2xl border border-emerald-500/20 hover:border-emerald-400/50 transition-all duration-300 group hover:-translate-y-1 reveal">
-                        <div class="w-14 h-14 rounded-xl bg-emerald-900/60 border border-emerald-500/30 flex items-center justify-center text-teal-300 mb-6 group-hover:scale-110 transition-transform">
-                            <i data-lucide="git-branch" class="w-7 h-7"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Dual Stream Expertise</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            Though from Zoology, Repon Sir teaches both Botany and Zoology with extraordinary clarity, clear cell diagrams, and physiological mechanics.
-                        </p>
-                    </div>
-
-                    <div class="glass-card p-8 rounded-2xl border border-emerald-500/20 hover:border-emerald-400/50 transition-all duration-300 group hover:-translate-y-1 reveal">
-                        <div class="w-14 h-14 rounded-xl bg-emerald-900/60 border border-emerald-500/30 flex items-center justify-center text-cyan-300 mb-6 group-hover:scale-110 transition-transform">
-                            <i data-lucide="clipboard-check" class="w-7 h-7"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Rigorous Progress Tracking</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            Continuous weekly topic-wise exams, model tests, score graphics in the student portal, and guardian updates to ensure continuous improvement.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Course Syllabus Section -->
-        <section id="courses" class="py-20 relative bg-emeraldBase/40">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                    <h2 class="text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-2">HSC Biology Curriculum</h2>
-                    <p class="text-3xl sm:text-4xl font-extrabold text-white">Botany & Zoology Master Modules</p>
-                    <p class="text-slate-400 text-sm mt-3">Targeted for HSC 2026, 2027 and Fresh <span class="text-emerald-400 font-semibold">HSC 2028</span> Batches.</p>
-                </div>
-
-                <!-- Syllabus Tabs -->
-                <div class="flex justify-center mb-10 reveal">
-                    <div class="p-1.5 glass-card rounded-xl border border-emerald-500/30 inline-flex gap-2">
-                        <button id="tab-botany-btn" onclick="switchTab('botany')" class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all bg-emerald-500 text-emeraldDark shadow-lg">
-                            🌿 HSC Botany
-                        </button>
-                        <button id="tab-zoology-btn" onclick="switchTab('zoology')" class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all text-slate-300 hover:text-white">
-                            🦁 HSC Zoology
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Botany Grid -->
-                <div id="tab-botany" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
-                    <div class="glass-card p-6 rounded-2xl border border-emerald-500/20">
-                        <div class="text-emerald-400 text-xs font-mono mb-2">CHAPTER 01 - 03</div>
-                        <h4 class="text-lg font-bold text-white mb-2">Cell Structure & Division</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Fluid mosaic model, organelle functions, biomolecules, enzymes, mitosis & meiosis phases.</p>
-                        <span class="text-xs text-emerald-300 font-semibold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Board CQ/MCQ + Practical Diagrams</span>
-                    </div>
-
-                    <div class="glass-card p-6 rounded-2xl border border-emerald-500/20">
-                        <div class="text-emerald-400 text-xs font-mono mb-2">CHAPTER 04 - 06</div>
-                        <h4 class="text-lg font-bold text-white mb-2">Microorganisms & Plant Kingdom</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Virus replication, HIV cycle, Malaria parasite, Bryophytes and Pteridophytes characteristics.</p>
-                        <span class="text-xs text-emerald-300 font-semibold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> High-yield Medical MCQ Prep</span>
-                    </div>
-
-                    <div class="glass-card p-6 rounded-2xl border border-emerald-500/20">
-                        <div class="text-emerald-400 text-xs font-mono mb-2">CHAPTER 08 - 12</div>
-                        <h4 class="text-lg font-bold text-white mb-2">Plant Physiology & Biotech</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Photosynthesis C3/C4 pathways, Respiration glycolysis, Tissue culture & Recombinant DNA.</p>
-                        <span class="text-xs text-emerald-300 font-semibold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Concept & Calculation Intensive</span>
-                    </div>
-                </div>
-
-                <!-- Zoology Grid -->
-                <div id="tab-zoology" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 hidden reveal">
-                    <div class="glass-card p-6 rounded-2xl border border-emerald-500/20">
-                        <div class="text-cyan-300 text-xs font-mono mb-2">CHAPTER 01 - 03</div>
-                        <h4 class="text-lg font-bold text-white mb-2">Animal Diversity & Human Digestion</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Phylum classification, Hydra biology, Grasshopper anatomy, Human digestive enzymes.</p>
-                        <span class="text-xs text-cyan-300 font-semibold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-300"></i> Detailed Anatomical Diagrams</span>
-                    </div>
-
-                    <div class="glass-card p-6 rounded-2xl border border-emerald-500/20">
-                        <div class="text-cyan-300 text-xs font-mono mb-2">CHAPTER 04 - 07</div>
-                        <h4 class="text-lg font-bold text-white mb-2">Circulation, Respiration & Excretion</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Cardiac cycle, ECG mechanics, Gas transport, Nephron physiology and osmoregulation.</p>
-                        <span class="text-xs text-cyan-300 font-semibold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-300"></i> Core Human Physiology</span>
-                    </div>
-
-                    <div class="glass-card p-6 rounded-2xl border border-emerald-500/20">
-                        <div class="text-cyan-300 text-xs font-mono mb-2">CHAPTER 08 - 11</div>
-                        <h4 class="text-lg font-bold text-white mb-2">Genetics, Immunity & Locomotion</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Skeletal muscle action, Mendel's laws and sex-linked disorders, Primary/Secondary immunity.</p>
-                        <span class="text-xs text-cyan-300 font-semibold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-300"></i> Board & Medical Admission Focus</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Fee Structure & Interactive Fee Calculator -->
-        <section id="fees" class="py-20 relative">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                    <h2 class="text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-2">Transparent Pricing</h2>
-                    <p class="text-3xl sm:text-4xl font-extrabold text-white">Tuition & Interactive Cost Estimator</p>
-                    <p class="text-slate-400 text-sm mt-3">Simple pricing with bKash personal transaction verification.</p>
-                </div>
-
-                <div class="grid lg:grid-cols-12 gap-8 items-start">
-                    
-                    <!-- Pricing Details Left -->
-                    <div class="lg:col-span-5 space-y-6 reveal">
-                        <div class="glass-card p-6 rounded-2xl border-l-4 border-l-emerald-400 border border-emerald-500/20 relative overflow-hidden">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <span class="text-xs text-emerald-400 font-mono uppercase tracking-wider">Regular Monthly Fee</span>
-                                    <h3 class="text-2xl font-bold text-white mt-1">Monthly Tuition</h3>
-                                </div>
-                                <div class="text-right">
-                                    <span class="text-3xl font-extrabold text-white">1,000</span>
-                                    <span class="text-xs text-slate-400 block">BDT / Month</span>
-                                </div>
-                            </div>
-                            <ul class="mt-4 space-y-2 text-xs text-slate-300">
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Full Botany & Zoology lectures</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Regular chapter exams & feedback</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Online portal score tracking</li>
-                            </ul>
-                        </div>
-
-                        <div class="glass-card p-6 rounded-2xl border-l-4 border-l-cyan-400 border border-emerald-500/20 relative overflow-hidden">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <span class="text-xs text-cyan-300 font-mono uppercase tracking-wider">New Student Enrollment</span>
-                                    <h3 class="text-2xl font-bold text-white mt-1">Admission Package</h3>
-                                </div>
-                                <div class="text-right">
-                                    <span class="text-3xl font-extrabold text-cyan-300">2,000</span>
-                                    <span class="text-xs text-slate-400 block">BDT Total</span>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-300 mt-2">Includes: <strong>1,000 BDT Admission Fee</strong> + <strong>1,000 BDT 1st Month Advance Fee</strong>.</p>
-                            <div class="mt-4 p-3 rounded-lg bg-emerald-950/60 border border-emerald-500/30 text-xs text-emerald-300 flex items-center gap-2">
-                                <i data-lucide="smartphone" class="w-5 h-5 shrink-0 text-pink-400"></i>
-                                <span>bKash Personal: <strong>+880 1710-056730</strong> (Send Money)</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Fee Calculator Right -->
-                    <div class="lg:col-span-7 glass-card p-8 rounded-3xl border border-emerald-500/30 reveal">
-                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                            <i data-lucide="calculator" class="w-5 h-5 text-emerald-400"></i>
-                            Interactive Academic Cost Estimator
-                        </h3>
-                        <p class="text-slate-400 text-xs mb-6">Calculate estimated total cost depending on batch and duration.</p>
-
-                        <div class="space-y-6">
-                            <!-- Student Status -->
-                            <div>
-                                <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider block mb-2">Enrollment Status</label>
-                                <div class="grid grid-cols-2 gap-3">
-                                    <label class="flex items-center gap-3 p-3 rounded-xl glass-card border border-emerald-500/30 cursor-pointer hover:bg-emerald-900/30">
-                                        <input type="radio" name="calc-status" value="new" checked onchange="calculateFee()" class="accent-emerald-400">
-                                        <span class="text-sm font-medium text-white">New Admission (With Reg Fee)</span>
-                                    </label>
-                                    <label class="flex items-center gap-3 p-3 rounded-xl glass-card border border-emerald-500/30 cursor-pointer hover:bg-emerald-900/30">
-                                        <input type="radio" name="calc-status" value="existing" onchange="calculateFee()" class="accent-emerald-400">
-                                        <span class="text-sm font-medium text-white">Existing Student</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <!-- Target Batch Selection -->
-                            <div>
-                                <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider block mb-2">Target HSC Batch</label>
-                                <select id="calc-batch" onchange="calculateFee()" class="w-full p-3 rounded-xl bg-emerald-950/80 border border-emerald-700/50 text-white focus:outline-none focus:border-emerald-400 text-xs">
-                                    <option value="HSC 2028" selected>HSC 2028 (Fresh Admission Open)</option>
-                                    <option value="HSC 2027">HSC 2027 (Second Year Care)</option>
-                                    <option value="HSC 2026">HSC 2026 (Final Revision / Model Test)</option>
-                                </select>
-                            </div>
-
-                            <!-- Duration Slider -->
-                            <div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Tuition Duration (Months)</label>
-                                    <span id="calc-months-val" class="text-sm font-bold text-emerald-400">1 Month</span>
-                                </div>
-                                <input type="range" id="calc-months" min="1" max="12" value="1" oninput="calculateFee()" class="w-full h-2 bg-emerald-950 rounded-lg appearance-none cursor-pointer accent-emerald-400">
-                            </div>
-
-                            <!-- Total Display -->
-                            <div class="p-4 rounded-xl bg-gradient-to-r from-emerald-950/80 to-teal-950/80 border border-emerald-500/40 flex items-center justify-between">
-                                <div>
-                                    <span class="text-xs text-slate-400 block">Calculated Total</span>
-                                    <span class="text-xs text-emerald-300/80" id="calc-batch-note">For HSC 2028 Batch</span>
-                                </div>
-                                <div class="text-right">
-                                    <span id="calc-total" class="text-3xl font-black text-emerald-400 neon-text-glow">2,000</span>
-                                    <span class="text-xs text-emerald-300 font-bold ml-1">BDT</span>
-                                </div>
-                            </div>
-
-                            <button onclick="openRegisterModal()" class="w-full py-3.5 rounded-xl font-bold bg-emerald-500 text-emeraldDark hover:bg-emerald-400 transition-all flex items-center justify-center gap-2 shadow-lg">
-                                Enroll for HSC 2028 & Pay via bKash <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Location & Contact Section -->
-        <section id="contact" class="py-20 relative bg-emeraldBase/50 border-t border-emerald-900/30">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-12 gap-12 items-center">
-                    
-                    <div class="lg:col-span-6 space-y-6 reveal">
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-900/60 border border-emerald-500/30 text-emerald-300 text-xs font-mono">
-                            PHYSICAL LOCATION & CONTACT
-                        </div>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Academic Center Location</h2>
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            Conveniently situated in the educational hub of Rangpur city. Students and guardians are invited to visit during class hours.
-                        </p>
-
-                        <div class="space-y-4 pt-2">
-                            <div class="glass-card p-4 rounded-xl border border-emerald-500/20 flex items-start gap-4">
-                                <div class="p-3 rounded-lg bg-emerald-900/60 text-emerald-400 shrink-0">
-                                    <i data-lucide="map-pin" class="w-6 h-6"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm font-bold text-white">Address</h4>
-                                    <p class="text-slate-300 text-xs mt-0.5">Chanmari Math, Radhaballav, Rangpur, Bangladesh</p>
-                                </div>
-                            </div>
-
-                            <div class="glass-card p-4 rounded-xl border border-emerald-500/20 flex items-start gap-4">
-                                <div class="p-3 rounded-lg bg-emerald-900/60 text-pink-400 shrink-0">
-                                    <i data-lucide="phone-call" class="w-6 h-6"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm font-bold text-white">Direct Phone & bKash Number</h4>
-                                    <p class="text-emerald-400 font-mono text-base font-bold mt-0.5">+880 1710-056730</p>
-                                    <p class="text-[11px] text-slate-400">Available 9:00 AM - 8:00 PM for HSC 2028 inquiries.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Map Display Box -->
-                    <div class="lg:col-span-6 reveal">
-                        <div class="glass-card rounded-3xl p-4 border border-emerald-500/30 shadow-2xl relative">
-                            <div class="h-80 w-full rounded-2xl bg-emerald-950/80 border border-emerald-800/40 flex flex-col items-center justify-center text-center p-6 relative overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-tr from-emerald-950 via-emerald-900/40 to-teal-950 opacity-90"></div>
-                                <div class="relative z-10 space-y-4">
-                                    <div class="w-16 h-16 mx-auto rounded-full bg-emerald-500/20 border border-emerald-400 flex items-center justify-center text-emerald-400 animate-bounce">
-                                        <i data-lucide="map-pin" class="w-8 h-8"></i>
-                                    </div>
-                                    <h3 class="text-lg font-bold text-white">Chanmari Math, Radhaballav</h3>
-                                    <p class="text-xs text-slate-300 max-w-xs mx-auto">Rangpur City Center | Easy access for students across Rangpur district</p>
-                                    
-                                    <a href="https://maps.google.com/?q=Radhaballav+Rangpur" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-emerald-500 text-emeraldDark hover:bg-emerald-400 text-xs transition-all shadow-lg">
-                                        <i data-lucide="navigation" class="w-4 h-4"></i> Open in Google Maps
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Student Dashboard Modal -->
-        <div id="student-portal-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden">
-            <div class="relative w-full max-w-4xl glass-modal rounded-3xl p-6 sm:p-8 border border-emerald-400/40 shadow-2xl max-h-[90vh] overflow-y-auto">
-                
-                <button onclick="closeStudentPortal()" class="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-white hover:bg-emerald-900/50 transition-all">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-
-                <div class="flex items-center gap-4 border-b border-emerald-800/40 pb-6 mb-6">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-400 flex items-center justify-center text-emerald-400">
-                        <i data-lucide="user-check" class="w-6 h-6"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-white">Student Academic Dashboard</h3>
-                        <p class="text-xs text-emerald-300 font-mono" id="portal-user-welcome">Welcome, HSC Biology Student</p>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-12 gap-6">
-                    <!-- Profile Info Left -->
-                    <div class="md:col-span-4 glass-card p-5 rounded-2xl border border-emerald-500/20 space-y-4">
-                        <div class="text-center pb-3 border-b border-emerald-800/30">
-                            <div class="w-20 h-20 mx-auto rounded-full bg-emerald-900/80 border-2 border-emerald-400 flex items-center justify-center text-2xl font-bold text-emerald-300 mb-2" id="portal-avatar">
-                                S
-                            </div>
-                            <h4 class="font-bold text-white text-base" id="portal-student-name">Student Name</h4>
-                            <p class="text-xs text-slate-400" id="portal-student-college">College Name</p>
-                            <span class="inline-block mt-2 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30" id="portal-student-batch">HSC 2028</span>
-                        </div>
-
-                        <div class="space-y-2 text-xs">
-                            <div class="flex justify-between py-1 border-b border-emerald-900/30">
-                                <span class="text-slate-400">Mobile Number:</span>
-                                <span class="font-mono text-emerald-300" id="portal-student-phone">01700000000</span>
-                            </div>
-                            <div class="flex justify-between py-1 border-b border-emerald-900/30">
-                                <span class="text-slate-400">Guardian Contact:</span>
-                                <span class="font-mono text-emerald-300" id="portal-student-guardian">01800000000</span>
-                            </div>
-                            <div class="flex justify-between py-1 border-b border-emerald-900/30">
-                                <span class="text-slate-400">Payment Clearance:</span>
-                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30" id="portal-pay-status">CLEARED (2,000 BDT)</span>
-                            </div>
-                            <div class="flex justify-between py-1">
-                                <span class="text-slate-400">Transaction ID:</span>
-                                <span class="font-mono text-slate-200" id="portal-trxid">TRX9827361</span>
-                            </div>
-                        </div>
-
-                        <button onclick="downloadReceipt()" class="w-full py-2.5 rounded-xl font-semibold bg-emerald-900/50 hover:bg-emerald-800/80 text-emerald-300 border border-emerald-500/30 text-xs flex items-center justify-center gap-2 transition-all">
-                            <i data-lucide="download" class="w-4 h-4"></i> Payment Receipt (PDF)
-                        </button>
-                    </div>
-
-                    <!-- Performance Chart & Tests Right -->
-                    <div class="md:col-span-8 space-y-6">
-                        <div class="glass-card p-5 rounded-2xl border border-emerald-500/20">
-                            <h4 class="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                                <i data-lucide="trending-up" class="w-4 h-4 text-emerald-400"></i>
-                                Evaluation Exam Score Progress (Botany & Zoology)
-                            </h4>
-                            <div class="h-44 w-full">
-                                <canvas id="performanceChart"></canvas>
-                            </div>
-                        </div>
-
-                        <div class="glass-card p-5 rounded-2xl border border-emerald-500/20">
-                            <h4 class="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                                <i data-lucide="calendar" class="w-4 h-4 text-emerald-400"></i>
-                                Upcoming Class Model Tests
-                            </h4>
-                            <div class="space-y-2 text-xs">
-                                <div class="flex items-center justify-between p-2.5 rounded-lg bg-emerald-950/60 border border-emerald-800/30">
-                                    <div>
-                                        <div class="font-bold text-white">Botany Chapter 01: Cell Wall & Membrane CQ/MCQ</div>
-                                        <div class="text-[11px] text-slate-400">Full Marks: 50 | Duration: 1 Hour</div>
-                                    </div>
-                                    <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 font-semibold text-[11px]">Next Friday</span>
-                                </div>
-                                <div class="flex items-center justify-between p-2.5 rounded-lg bg-emerald-950/60 border border-emerald-800/30">
-                                    <div>
-                                        <div class="font-bold text-white">Zoology Chapter 01: Animal Classification & Phylum</div>
-                                        <div class="text-[11px] text-slate-400">Full Marks: 50 | Duration: 1 Hour</div>
-                                    </div>
-                                    <span class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-300 font-semibold text-[11px]">Following Tuesday</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-6 pt-4 border-t border-emerald-800/30 flex justify-between items-center text-xs">
-                    <span class="text-slate-400">Attendance or score query? Contact Repon Sir directly at +880 1710-056730</span>
-                    <button onclick="logoutStudent()" class="px-4 py-2 rounded-lg bg-red-950/50 hover:bg-red-900/80 text-red-300 border border-red-500/30 font-semibold transition-all">
-                        Logout
-                    </button>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Registration Modal -->
-        <div id="register-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden">
-            <div class="relative w-full max-w-lg glass-modal rounded-3xl p-6 sm:p-8 border border-emerald-400/40 shadow-2xl">
-                
-                <button onclick="closeRegisterModal()" class="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-white hover:bg-emerald-900/50 transition-all">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-
-                <div class="mb-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-pink-950/80 border border-pink-500/40 text-pink-300 text-xs font-mono mb-2">
-                        <i data-lucide="smartphone" class="w-3.5 h-3.5"></i> bKash Payment Step
-                    </div>
-                    <h3 class="text-2xl font-extrabold text-white">HSC Biology Registration</h3>
-                    <p class="text-xs text-slate-300 mt-1">Admission Fee + 1st Month Advance: <strong class="text-emerald-400">2,000 BDT</strong></p>
-                </div>
-
-                <div class="p-3.5 rounded-xl bg-pink-950/40 border border-pink-500/30 mb-5 text-xs text-slate-200 space-y-1">
-                    <div class="font-bold text-pink-300 flex items-center justify-between">
-                        <span>bKash Personal (Send Money):</span>
-                        <span class="font-mono bg-pink-900/60 px-2 py-0.5 rounded text-pink-200">+880 1710-056730</span>
-                    </div>
-                    <p class="text-[11px] text-slate-300">1. Send 2,000 BDT to the bKash Personal number above.</p>
-                    <p class="text-[11px] text-slate-300">2. Enter your details & TrxID below to complete admission.</p>
-                </div>
-
-                <form id="reg-form" onsubmit="handleRegistration(event)" class="space-y-4 text-xs">
-                    <div>
-                        <label class="block font-semibold text-slate-300 mb-1">Target HSC Batch *</label>
-                        <select id="reg-batch" required class="w-full p-3 rounded-xl bg-emerald-950/80 border border-emerald-700/50 text-emerald-300 font-bold focus:outline-none focus:border-emerald-400">
-                            <option value="HSC 2028" selected>HSC 2028 (Fresh Admission)</option>
-                            <option value="HSC 2027">HSC 2027</option>
-                            <option value="HSC 2026">HSC 2026</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block font-semibold text-slate-300 mb-1">Student Full Name *</label>
-                        <input type="text" id="reg-name" required placeholder="e.g. Tanvir Ahmed" class="w-full p-3 rounded-xl bg-emerald-950/80 border border-emerald-700/50 text-white focus:outline-none focus:border-emerald-400">
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-3">
-                        <div>
-                            <label class="block font-semibold text-slate-300 mb-1">Student Mobile *</label>
-                            <input type="tel" id="reg-phone" required placeholder="017xxxxxxxx" class="w-full p-3 rounded-xl bg-emerald-950/80 border border-emerald-700/50 text-white focus:outline-none focus:border-emerald-400">
-                        </div>
-                        <div>
-                            <label class="block font-semibold text-slate-300 mb-1">Guardian Mobile *</label>
-                            <input type="tel" id="reg-guardian" required placeholder="018xxxxxxxx" class="w-full p-3 rounded-xl bg-emerald-950/80 border border-emerald-700/50 text-white focus:outline-none focus:border-emerald-400">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block font-semibold text-slate-300 mb-1">College Name *</label>
-                        <input type="text" id="reg-college" required placeholder="e.g. Rangpur Govt. College" class="w-full p-3 rounded-xl bg-emerald-950/80 border border-emerald-700/50 text-white focus:outline-none focus:border-emerald-400">
-                    </div>
-
-                    <div>
-                        <label class="block font-semibold text-pink-300 mb-1">bKash Transaction ID (TrxID) *</label>
-                        <input type="text" id="reg-trxid" required placeholder="e.g. BAX9823719" class="w-full p-3 rounded-xl bg-pink-950/30 border border-pink-500/50 text-pink-200 font-mono tracking-wider uppercase focus:outline-none focus:border-pink-400">
-                    </div>
-
-                    <button type="submit" class="w-full py-3.5 rounded-xl font-bold bg-gradient-to-r from-emerald-500 to-cyan-400 text-emeraldDark hover:opacity-90 transition-all text-sm shadow-lg mt-2">
-                        Verify TrxID & Register for HSC 2028
-                    </button>
-                </form>
+    <!-- About Section -->
+    <section id="about" class="py-20 relative px-4 sm:px-6 lg:px-8 border-t border-slate-800/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2 font-heading">Academic Excellence</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold font-heading text-white">Distinction in Teaching & Pedagogy</p>
+                <div class="w-20 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 mx-auto mt-4 rounded-full"></div>
             </div>
-        </div>
 
-        <!-- Login Modal -->
-        <div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden">
-            <div class="relative w-full max-w-md glass-modal rounded-3xl p-6 sm:p-8 border border-emerald-400/40 shadow-2xl">
-                
-                <button onclick="closeLoginModal()" class="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-white hover:bg-emerald-900/50 transition-all">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-
-                <div class="mb-6 text-center">
-                    <div class="w-12 h-12 mx-auto rounded-2xl bg-emerald-500/20 border border-emerald-400 flex items-center justify-center text-emerald-400 mb-3">
-                        <i data-lucide="log-in" class="w-6 h-6"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-2xl p-8 glass-card-hover relative group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-950/80 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl mb-6">
+                        <i class="fa-solid fa-user-tie"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white">Student Portal Login</h3>
-                    <p class="text-xs text-slate-300 mt-1">Access your exam scores and clearance status</p>
+                    <h3 class="text-xl font-bold font-heading text-white mb-2">Current Designation</h3>
+                    <p class="text-emerald-400 font-semibold text-sm mb-3">Assistant Professor, Department of Zoology</p>
+                    <p class="text-slate-300 text-sm">Serving at Rangpur Government College with elite standards.</p>
                 </div>
-
-                <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4 text-xs">
-                    <div>
-                        <label class="block font-semibold text-slate-300 mb-1">Registered Mobile Number</label>
-                        <input type="tel" id="login-phone" required placeholder="Enter mobile number (e.g. 01710000000)" class="w-full p-3.5 rounded-xl bg-emerald-950/80 border border-emerald-700/50 text-white focus:outline-none focus:border-emerald-400 font-mono text-sm">
+                <div class="glass-card rounded-2xl p-8 glass-card-hover relative group">
+                    <div class="w-14 h-14 rounded-2xl bg-teal-950/80 border border-teal-500/30 flex items-center justify-center text-teal-400 text-2xl mb-6">
+                        <i class="fa-solid fa-graduation-cap"></i>
                     </div>
-
-                    <div id="login-error" class="hidden p-3 rounded-lg bg-red-950/60 border border-red-500/40 text-red-300 text-xs">
-                        Mobile number not found. Please register or click demo login below.
+                    <h3 class="text-xl font-bold font-heading text-white mb-2">Educational Legacy</h3>
+                    <p class="text-teal-400 font-semibold text-sm mb-3">Govt. Azizul Haque & Rajshahi Univ.</p>
+                    <p class="text-slate-300 text-sm">Deep academic specialization in biological sciences.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-8 glass-card-hover relative group">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mb-6">
+                        <i class="fa-solid fa-leaf"></i>
                     </div>
-
-                    <button type="submit" class="w-full py-3.5 rounded-xl font-bold bg-emerald-500 text-emeraldDark hover:bg-emerald-400 transition-all text-sm shadow-lg">
-                        Login To Dashboard
-                    </button>
-                </form>
-
-                <div class="mt-6 pt-4 border-t border-emerald-800/30 text-center">
-                    <p class="text-xs text-slate-400">Want to test the student portal?</p>
-                    <button onclick="fillDemoLogin()" class="mt-2 text-xs font-semibold text-emerald-400 hover:underline">
-                        Auto-Login Demo Student Account
-                    </button>
+                    <h3 class="text-xl font-bold font-heading text-white mb-2">Dual Subject Mastery</h3>
+                    <p class="text-cyan-400 font-semibold text-sm mb-3">Botany & Zoology Expert</p>
+                    <p class="text-slate-300 text-sm">Flawless teaching covering both 1st and 2nd papers.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Footer -->
-        <footer class="mt-auto border-t border-emerald-900/40 glass-card py-10 relative z-10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div>
-                        <a href="#" class="text-lg font-extrabold text-white tracking-wider flex items-center gap-2">
-                            <i data-lucide="dna" class="w-5 h-5 text-emerald-400"></i> REPON SIR BIOLOGY CARE
-                        </a>
-                        <p class="text-xs text-slate-400 mt-1">Premier HSC Biology Academic Care in Rangpur under Assistant Professor Md. Moksedur Rahman Repon.</p>
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-20 relative px-4 sm:px-6 lg:px-8 bg-slate-950/60">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-3 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-500/30 text-xs font-bold uppercase tracking-wider">Class Timings</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white mt-3">HSC Batch Schedules</h2>
+                <p class="text-slate-400 text-sm mt-2">Structured small-batch learning at Chanmari Math, Rangpur.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="glass-card rounded-3xl p-8 border-2 border-emerald-500/40 relative overflow-hidden shadow-2xl">
+                    <h3 class="text-2xl font-extrabold font-heading text-white mb-2">HSC Batch</h3>
+                    <p class="text-xs text-slate-300 mb-6">Foundational & Advanced HSC Biology Preparation</p>
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-slate-900/80 border border-emerald-900/50 flex items-center justify-between">
+                            <div>
+                                <span class="text-emerald-400 text-xs font-bold uppercase block">Group A</span>
+                                <span class="text-sm font-semibold text-white">Sat, Mon, Wed</span>
+                            </div>
+                            <span class="px-3 py-1 rounded-md bg-emerald-950 border border-emerald-500/30 text-emerald-300 text-xs font-bold">3:00 PM - 4:00 PM</span>
+                        </div>
                     </div>
-                    <div class="text-xs text-slate-400 text-center md:text-right">
-                        <p>© 2026 Repon Sir Biology Care. All Rights Reserved.</p>
-                        <p class="mt-1 text-emerald-400 font-mono">Location: Chanmari Math, Radhaballav, Rangpur</p>
+                    <button onclick="openModal('registerModal')" class="w-full mt-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm transition-all shadow-lg">Enroll Now</button>
+                </div>
+                <div class="glass-card rounded-3xl p-8 border border-teal-500/30 relative overflow-hidden shadow-2xl">
+                    <h3 class="text-2xl font-extrabold font-heading text-white mb-2">HSC Revision Batch</h3>
+                    <p class="text-xs text-slate-300 mb-6">Complete Syllabus Coverage & Exam Preparation</p>
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-slate-900/80 border border-teal-900/50 flex items-center justify-between">
+                            <div>
+                                <span class="text-teal-400 text-xs font-bold uppercase block">Group B</span>
+                                <span class="text-sm font-semibold text-white">Sun, Tue, Thu</span>
+                            </div>
+                            <span class="px-3 py-1 rounded-md bg-teal-950 border border-teal-500/30 text-teal-300 text-xs font-bold">4:00 PM - 5:00 PM</span>
+                        </div>
+                    </div>
+                    <button onclick="openModal('registerModal')" class="w-full mt-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 font-extrabold text-sm border border-teal-500/30 transition-all">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fee & bKash Section -->
+    <section id="fee-calculator" class="py-20 relative px-4 sm:px-6 lg:px-8 border-t border-slate-800/50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <div>
+                    <span class="text-emerald-400 font-bold text-xs uppercase tracking-wider font-heading">Transparent Pricing</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white mt-1">Fee Structure & Calculator</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="glass-card rounded-2xl p-5 border-emerald-500/30">
+                        <span class="text-xs text-slate-400 block">Monthly Fee</span>
+                        <span class="text-3xl font-extrabold text-white font-heading mt-1 block">1,000 <span class="text-sm font-normal text-emerald-400">BDT/mo</span></span>
+                    </div>
+                    <div class="glass-card rounded-2xl p-5 border-emerald-500/30 bg-emerald-950/30">
+                        <span class="text-xs text-emerald-400 font-bold block">New Admission Package</span>
+                        <span class="text-3xl font-extrabold text-white font-heading mt-1 block">2,000 <span class="text-sm font-normal text-emerald-400">BDT</span></span>
                     </div>
                 </div>
             </div>
-        </footer>
 
+            <div class="lg:col-span-5">
+                <div class="glass-card rounded-3xl p-6 sm:p-8 border-2 border-pink-500/30 bg-slate-950/80 shadow-2xl">
+                    <div class="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-pink-600 text-white flex items-center justify-center font-bold text-lg">b</div>
+                            <div>
+                                <h3 class="font-bold text-white font-heading">bKash Personal Payment</h3>
+                                <p class="text-xs text-pink-400">Send Money</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center">
+                            <span class="text-xs text-slate-400 block mb-1">Personal bKash Number</span>
+                            <span class="text-xl font-bold font-mono text-emerald-400">+880 1710-056730</span>
+                        </div>
+                        <button onclick="openModal('registerModal')" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-pink-600 to-rose-600 text-white font-bold text-sm shadow-lg">Register & Submit TrxID</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-20 relative px-4 sm:px-6 lg:px-8 bg-slate-950/80 border-t border-slate-800/50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-6">
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white">Visit Our Academy</h2>
+                <p class="text-slate-300 text-sm">Chanmari Math, Radhaballav, Rangpur, Bangladesh.</p>
+            </div>
+            <div class="lg:col-span-7">
+                <div class="glass-card rounded-3xl p-3 border-emerald-500/30 h-[360px]">
+                    <iframe class="w-full h-full rounded-2xl filter contrast-125 brightness-90" src="https://maps.google.com/maps?q=Radhaballav,%20Rangpur,%20Bangladesh&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 overflow-y-auto">
+        <div class="glass-card rounded-3xl max-w-lg w-full p-6 sm:p-8 border-emerald-500/40 relative my-8 shadow-2xl">
+            <button onclick="closeModal('registerModal')" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold font-heading text-white">Student Registration</h3>
+                <p class="text-xs text-slate-400 mt-1">Fill up details with bKash TrxID</p>
+            </div>
+            <form id="registrationForm" onsubmit="handleRegistration(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Full Student Name *</label>
+                    <input type="text" id="reg-name" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Student Mobile (Used for Login) *</label>
+                        <input type="tel" id="reg-mobile" required placeholder="017XXXXXXXX" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">College Name *</label>
+                        <input type="text" id="reg-college" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Target Batch *</label>
+                    <select id="reg-batch" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
+                        <option value="HSC Batch">HSC Batch</option>
+                        <option value="HSC Revision Batch">HSC Revision Batch</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">bKash Transaction ID (TrxID) *</label>
+                    <input type="text" id="reg-trxid" required placeholder="e.g. BKX8723910" class="w-full bg-slate-900 border border-pink-500/40 rounded-xl px-4 py-2.5 text-sm text-white uppercase font-mono tracking-wider focus:outline-none">
+                </div>
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm transition-all shadow-lg">Submit Registration</button>
+            </form>
+        </div>
     </div>
 
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 backdrop-blur-md p-4">
+        <div class="glass-card rounded-3xl max-w-md w-full p-6 sm:p-8 border-emerald-500/40 relative shadow-2xl">
+            <button onclick="closeModal('loginModal')" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold font-heading text-white">Student Portal Login</h3>
+                <p class="text-xs text-slate-400 mt-1">Enter your registered mobile number</p>
+            </div>
+            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Registered Mobile Number</label>
+                    <input type="tel" id="login-mobile" required placeholder="017XXXXXXXX" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm transition-all shadow-lg">Access Dashboard</button>
+            </form>
+        </div>
+    </div>
 
-        // Reveal Scroll Animation
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            revealElements.forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 80) {
-                    el.classList.add('active');
-                }
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll);
+    <!-- Dashboard Modal -->
+    <div id="dashboardModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/90 backdrop-blur-lg p-4 overflow-y-auto">
+        <div class="glass-card rounded-3xl max-w-3xl w-full p-6 sm:p-8 border-emerald-500/40 relative my-8 shadow-2xl">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-5 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-extrabold text-xl font-heading" id="dash-avatar">S</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white font-heading" id="dash-name">Student Name</h3>
+                        <p class="text-xs text-emerald-400 font-medium" id="dash-college">College Name</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="logoutStudent()" class="px-3.5 py-1.5 rounded-lg bg-red-950/60 text-red-400 border border-red-500/30 text-xs font-semibold">Logout</button>
+                    <button onclick="closeModal('dashboardModal')" class="text-slate-400 hover:text-white text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <span class="text-[10px] uppercase font-bold text-slate-400">Target Batch</span>
+                        <span class="text-base font-bold text-white block mt-0.5" id="dash-batch">HSC Batch</span>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <span class="text-[10px] uppercase font-bold text-slate-400">Payment Status</span>
+                        <span class="text-xs font-bold text-emerald-300 block mt-1" id="dash-payment-status">Verified (Paid)</span>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <span class="text-[10px] uppercase font-bold text-slate-400">TrxID</span>
+                        <span class="text-xs font-mono font-bold text-pink-400 block mt-1" id="dash-trxid">BKX8723910</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        // Custom Cursor Coordinate Tracking
-        let mouseX = 0, mouseY = 0;
-        const cursorDot = document.getElementById('cursor-dot');
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+    <!-- Toast Element -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden glass-card border-emerald-500 px-5 py-3 rounded-xl shadow-2xl text-xs font-semibold text-white flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+        <span id="toast-msg">Notification Message</span>
+    </div>
 
-            if (cursorDot) {
-                cursorDot.style.transform = `translate3d(${e.clientX - 12}px, ${e.clientY - 12}px, 0)`;
-            }
-        });
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-10 px-4 text-center text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto space-y-4">
+            <p>Chanmari Math, Radhaballav, Rangpur • Contact / bKash: +880 1710-056730</p>
+            <p class="text-[11px] text-slate-400">© 2026 MD. MOKSEDUR RAHMAN REPON. All rights reserved.</p>
+        </div>
+    </footer>
 
-        // Mobile Menu Toggle
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+    <!-- Firebase Integration Script -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-        // Tab Switcher for Botany / Zoology
-        function switchTab(tab) {
-            const botanyTab = document.getElementById('tab-botany');
-            const zoologyTab = document.getElementById('tab-zoology');
-            const botanyBtn = document.getElementById('tab-botany-btn');
-            const zoologyBtn = document.getElementById('tab-zoology-btn');
-
-            if (tab === 'botany') {
-                botanyTab.classList.remove('hidden');
-                zoologyTab.classList.add('hidden');
-                botanyBtn.className = "px-6 py-2.5 rounded-lg text-sm font-semibold transition-all bg-emerald-500 text-emeraldDark shadow-lg";
-                zoologyBtn.className = "px-6 py-2.5 rounded-lg text-sm font-semibold transition-all text-slate-300 hover:text-white";
-            } else {
-                botanyTab.classList.add('hidden');
-                zoologyTab.classList.remove('hidden');
-                zoologyBtn.className = "px-6 py-2.5 rounded-lg text-sm font-semibold transition-all bg-cyan-400 text-emeraldDark shadow-lg";
-                botanyBtn.className = "px-6 py-2.5 rounded-lg text-sm font-semibold transition-all text-slate-300 hover:text-white";
-            }
-        }
-
-        // Fee Calculator Logic
-        function calculateFee() {
-            const status = document.querySelector('input[name="calc-status"]:checked').value;
-            const months = parseInt(document.getElementById('calc-months').value);
-            const batch = document.getElementById('calc-batch').value;
-
-            document.getElementById('calc-months-val').innerText = `${months} ${months === 1 ? 'Month' : 'Months'}`;
-            document.getElementById('calc-batch-note').innerText = `For ${batch} Batch`;
-
-            let total = months * 1000;
-            if (status === 'new') {
-                total += 1000; // Admission fee
-            }
-
-            document.getElementById('calc-total').innerText = total.toLocaleString();
-        }
-
-        // Student LocalStorage & Dashboard Logic
-        const DEFAULT_DEMO_USER = {
-            name: "Sabbir Hossain",
-            phone: "01710000000",
-            guardian: "01810000000",
-            college: "Rangpur Government College",
-            batch: "HSC 2028",
-            trxid: "BKSH9823712",
-            status: "VERIFIED & CLEARED"
+        const firebaseConfig = {
+            apiKey: "AIzaSyC9D3ycvht9_12lt8ckhimkefcd8p5vuEA",
+            authDomain: "repon-sir-biology.firebaseapp.com",
+            projectId: "repon-sir-biology",
+            storageBucket: "repon-sir-biology.firebasestorage.app",
+            messagingSenderId: "806175601983",
+            appId: "1:806175601983:web:0e47ff38fd32166224cf8a",
+            measurementId: "G-CQ3467SS1C"
         };
 
-        function getStoredStudents() {
-            const stored = localStorage.getItem('repon_students_v2');
-            return stored ? JSON.parse(stored) : [DEFAULT_DEMO_USER];
-        }
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
 
-        function saveStudent(student) {
-            const students = getStoredStudents();
-            students.push(student);
-            localStorage.setItem('repon_students_v2', JSON.stringify(students));
-        }
-
-        function openRegisterModal() { document.getElementById('register-modal').classList.remove('hidden'); }
-        function closeRegisterModal() { document.getElementById('register-modal').classList.add('hidden'); }
-        function openLoginModal() {
-            document.getElementById('login-modal').classList.remove('hidden');
-            document.getElementById('login-error').classList.add('hidden');
-        }
-        function closeLoginModal() { document.getElementById('login-modal').classList.add('hidden'); }
-        function closeStudentPortal() { document.getElementById('student-portal-modal').classList.add('hidden'); }
-
-        function handleRegistration(e) {
+        // Global exposure for event handlers
+        window.handleRegistration = async function(e) {
             e.preventDefault();
-            const newStudent = {
-                name: document.getElementById('reg-name').value,
-                phone: document.getElementById('reg-phone').value,
-                guardian: document.getElementById('reg-guardian').value,
-                college: document.getElementById('reg-college').value,
-                batch: document.getElementById('reg-batch').value,
-                trxid: document.getElementById('reg-trxid').value,
-                status: "VERIFIED & CLEARED"
-            };
+            const name = document.getElementById('reg-name').value;
+            const mobile = document.getElementById('reg-mobile').value;
+            const college = document.getElementById('reg-college').value;
+            const batch = document.getElementById('reg-batch').value;
+            const trxid = document.getElementById('reg-trxid').value;
 
-            saveStudent(newStudent);
-            closeRegisterModal();
-            launchDashboard(newStudent);
-        }
+            const studentData = { name, mobile, college, batch, trxid, status: 'Verified (Paid)', timestamp: new Date().toISOString() };
 
-        function handleLogin(e) {
+            try {
+                // Save to Firestore using mobile number as document ID
+                await setDoc(doc(db, "students", mobile), studentData);
+                localStorage.setItem('repon_active_user', mobile);
+                closeModal('registerModal');
+                showToast('Registration successful & saved to Firebase!');
+                loadDashboard(studentData);
+                updateNavForLoggedInUser(name);
+            } catch (error) {
+                console.error("Error writing document: ", error);
+                showToast('Registration failed! Check console.');
+            }
+        };
+
+        window.handleLogin = async function(e) {
             e.preventDefault();
-            const phone = document.getElementById('login-phone').value.trim();
-            const students = getStoredStudents();
-            const user = students.find(s => s.phone === phone);
+            const mobile = document.getElementById('login-mobile').value;
 
-            if (user) {
-                closeLoginModal();
-                launchDashboard(user);
-            } else {
-                document.getElementById('login-error').classList.remove('hidden');
-            }
-        }
+            try {
+                const docRef = doc(db, "students", mobile);
+                const docSnap = await getDoc(docRef);
 
-        function fillDemoLogin() {
-            document.getElementById('login-phone').value = DEFAULT_DEMO_USER.phone;
-            closeLoginModal();
-            launchDashboard(DEFAULT_DEMO_USER);
-        }
-
-        let perfChartInstance = null;
-        function launchDashboard(user) {
-            document.getElementById('portal-student-name').innerText = user.name;
-            document.getElementById('portal-user-welcome').innerText = `Welcome, ${user.name} | ${user.batch || 'HSC 2028'}`;
-            document.getElementById('portal-student-college').innerText = user.college;
-            document.getElementById('portal-student-phone').innerText = user.phone;
-            document.getElementById('portal-student-guardian').innerText = user.guardian;
-            document.getElementById('portal-student-batch').innerText = user.batch || 'HSC 2028';
-            document.getElementById('portal-trxid').innerText = user.trxid || 'BKSH827361';
-            document.getElementById('portal-avatar').innerText = user.name.charAt(0).toUpperCase();
-
-            document.getElementById('student-portal-modal').classList.remove('hidden');
-
-            setTimeout(() => {
-                const ctx = document.getElementById('performanceChart').getContext('2d');
-                if (perfChartInstance) { perfChartInstance.destroy(); }
-
-                perfChartInstance = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: ['Quiz 1 (Botany)', 'Quiz 2 (Zoology)', 'Quiz 3 (Botany)', 'Quiz 4 (Zoology)', 'Model Test 1'],
-                        datasets: [{
-                            label: 'Student Exam Score (%)',
-                            data: [85, 89, 92, 88, 95],
-                            borderColor: '#10B981',
-                            backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                            fill: true,
-                            tension: 0.4,
-                            pointBackgroundColor: '#00FF9D',
-                            pointRadius: 5
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { display: false } },
-                        scales: {
-                            y: { min: 50, max: 100, grid: { color: 'rgba(16, 185, 129, 0.1)' }, ticks: { color: '#94A3B8' } },
-                            x: { grid: { display: false }, ticks: { color: '#94A3B8' } }
-                        }
-                    }
-                });
-            }, 100);
-        }
-
-        function downloadReceipt() {
-            const studentName = document.getElementById('portal-student-name').innerText;
-            const batch = document.getElementById('portal-student-batch').innerText;
-            const content = `=== REPON SIR BIOLOGY CARE PAYMENT RECEIPT ===\nStudent Name: ${studentName}\nBatch: ${batch}\nAmount Paid: 2,000 BDT (Admission + 1 Month Advance)\nStatus: CLEARED & VERIFIED\nTeacher: MD. Moksedur Rahman Repon Sir\nLocation: Chanmari Math, Radhaballav, Rangpur\nThank you for enrolling!`;
-            
-            const blob = new Blob([content], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${studentName.replace(/\s+/g, '_')}_HSC_Receipt.txt`;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        function logoutStudent() { closeStudentPortal(); }
-
-        // Bio-Neural & Floating Cellular Organelle Canvas Background Engine
-        let bioCanvas, bioCtx;
-        let bioNodes = [];
-        let currentBioMode = 'neural'; // 'neural', 'cellular', 'biolum'
-
-        function setBioMode(mode) {
-            currentBioMode = mode;
-            document.querySelectorAll('[id^="mode-btn-"]').forEach(btn => {
-                btn.className = "px-2.5 py-1 rounded-lg font-medium transition-all text-slate-300 hover:text-white hover:bg-emerald-900/40";
-            });
-            const activeBtn = document.getElementById(`mode-btn-${mode}`);
-            if (activeBtn) {
-                activeBtn.className = "px-2.5 py-1 rounded-lg font-medium transition-all bg-emerald-500 text-emeraldDark font-semibold shadow";
-            }
-            initBioNodes();
-        }
-
-        function initBioCanvas() {
-            bioCanvas = document.getElementById('bio-canvas');
-            bioCtx = bioCanvas.getContext('2d');
-            resizeBioCanvas();
-            initBioNodes();
-            animateBioCanvas();
-        }
-
-        function resizeBioCanvas() {
-            bioCanvas.width = window.innerWidth;
-            bioCanvas.height = window.innerHeight;
-        }
-
-        function initBioNodes() {
-            bioNodes = [];
-            const count = currentBioMode === 'cellular' ? 45 : (currentBioMode === 'biolum' ? 70 : 60);
-
-            for (let i = 0; i < count; i++) {
-                bioNodes.push({
-                    x: Math.random() * bioCanvas.width,
-                    y: Math.random() * bioCanvas.height,
-                    vx: (Math.random() - 0.5) * 0.8,
-                    vy: (Math.random() - 0.5) * 0.8,
-                    radius: currentBioMode === 'cellular' ? Math.random() * 8 + 4 : Math.random() * 3.5 + 1.5,
-                    pulse: Math.random() * Math.PI * 2,
-                    type: Math.floor(Math.random() * 3) // 0: Mitochondria/Chloroplast, 1: Synaptic Node, 2: Bio Dust
-                });
-            }
-        }
-
-        function animateBioCanvas() {
-            bioCtx.clearRect(0, 0, bioCanvas.width, bioCanvas.height);
-
-            // Draw Synaptic Bio-Connections (for Neural & Cellular modes)
-            if (currentBioMode !== 'biolum') {
-                for (let i = 0; i < bioNodes.length; i++) {
-                    for (let j = i + 1; j < bioNodes.length; j++) {
-                        const dx = bioNodes[i].x - bioNodes[j].x;
-                        const dy = bioNodes[i].y - bioNodes[j].y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        const maxDist = currentBioMode === 'cellular' ? 140 : 180;
-
-                        if (dist < maxDist) {
-                            const alpha = (1 - dist / maxDist) * 0.25;
-                            bioCtx.beginPath();
-                            bioCtx.moveTo(bioNodes[i].x, bioNodes[i].y);
-                            bioCtx.lineTo(bioNodes[j].x, bioNodes[j].y);
-                            bioCtx.strokeStyle = currentBioMode === 'cellular' ? `rgba(0, 240, 255, ${alpha})` : `rgba(16, 185, 129, ${alpha})`;
-                            bioCtx.lineWidth = 1;
-                            bioCtx.stroke();
-                        }
-                    }
-                }
-            }
-
-            // Draw Nodes & Cellular Micro-Organelles
-            for (let i = 0; i < bioNodes.length; i++) {
-                const node = bioNodes[i];
-                node.x += node.vx;
-                node.y += node.vy;
-
-                // Bounce off edges
-                if (node.x < 0 || node.x > bioCanvas.width) node.vx *= -1;
-                if (node.y < 0 || node.y > bioCanvas.height) node.vy *= -1;
-
-                // Mouse interaction repulsion/attraction
-                const dx = mouseX - node.x;
-                const dy = mouseY - node.y;
-                const distToMouse = Math.sqrt(dx * dx + dy * dy);
-                if (distToMouse < 150) {
-                    node.x -= (dx / distToMouse) * 0.8;
-                    node.y -= (dy / distToMouse) * 0.8;
-                }
-
-                node.pulse += 0.03;
-                const currentRadius = node.radius + Math.sin(node.pulse) * 0.8;
-
-                bioCtx.beginPath();
-                bioCtx.arc(node.x, node.y, Math.max(1, currentRadius), 0, Math.PI * 2);
-
-                if (currentBioMode === 'cellular') {
-                    // Cellular Organelle Glow Styling
-                    const glowGrad = bioCtx.createRadialGradient(node.x, node.y, 0, node.x, node.y, currentRadius * 3);
-                    glowGrad.addColorStop(0, 'rgba(0, 255, 157, 0.8)');
-                    glowGrad.addColorStop(0.5, 'rgba(0, 240, 255, 0.3)');
-                    glowGrad.addColorStop(1, 'rgba(0, 255, 157, 0)');
-                    bioCtx.fillStyle = glowGrad;
-                } else if (currentBioMode === 'biolum') {
-                    // Bioluminescent Deep Glow
-                    const glowGrad = bioCtx.createRadialGradient(node.x, node.y, 0, node.x, node.y, currentRadius * 4);
-                    glowGrad.addColorStop(0, 'rgba(0, 240, 255, 0.9)');
-                    glowGrad.addColorStop(0.6, 'rgba(124, 58, 237, 0.2)');
-                    glowGrad.addColorStop(1, 'transparent');
-                    bioCtx.fillStyle = glowGrad;
+                if (docSnap.exists()) {
+                    const studentData = docSnap.data();
+                    localStorage.setItem('repon_active_user', mobile);
+                    closeModal('loginModal');
+                    showToast('Welcome back, ' + studentData.name);
+                    loadDashboard(studentData);
+                    updateNavForLoggedInUser(studentData.name);
                 } else {
-                    // Neural Net Nodes
-                    bioCtx.fillStyle = '#10B981';
+                    showToast('Mobile number not found! Please register first.');
                 }
-
-                bioCtx.fill();
+            } catch (error) {
+                console.error("Error fetching document: ", error);
+                showToast('Login error occurred.');
             }
+        };
 
-            requestAnimationFrame(animateBioCanvas);
-        }
+        window.checkExistingSession = async function() {
+            const activeMobile = localStorage.getItem('repon_active_user');
+            if (activeMobile) {
+                try {
+                    const docRef = doc(db, "students", activeMobile);
+                    const docSnap = await getDoc(docRef);
+                    if (docSnap.exists()) {
+                        updateNavForLoggedInUser(docSnap.data().name);
+                    }
+                } catch (e) {
+                    console.error(e);
+                }
+            }
+        };
 
-        window.addEventListener('resize', resizeBioCanvas);
+        window.loadDashboard = function(data) {
+            document.getElementById('dash-avatar').innerText = data.name.charAt(0).toUpperCase();
+            document.getElementById('dash-name').innerText = data.name;
+            document.getElementById('dash-college').innerText = data.college;
+            document.getElementById('dash-batch').innerText = data.batch;
+            document.getElementById('dash-trxid').innerText = data.trxid.toUpperCase();
+            openModal('dashboardModal');
+        };
+
+        window.updateNavForLoggedInUser = function(name) {
+            const navAuth = document.getElementById('nav-auth-buttons');
+            navAuth.innerHTML = `
+                <button onclick="openModal('dashboardModal')" class="px-4 py-2 rounded-xl bg-emerald-950 border border-emerald-500/40 text-emerald-300 font-bold text-sm hover:bg-emerald-900/60 transition-all">
+                    <i class="fa-solid fa-user-check mr-1.5"></i> ${name}'s Portal
+                </button>
+            `;
+        };
+
+        window.logoutStudent = function() {
+            localStorage.removeItem('repon_active_user');
+            closeModal('dashboardModal');
+            location.reload();
+        };
+
+        window.openModal = function(id) {
+            document.getElementById(id).classList.remove('hidden');
+            document.getElementById(id).classList.add('flex');
+        };
+
+        window.closeModal = function(id) {
+            document.getElementById(id).classList.add('hidden');
+            document.getElementById(id).classList.remove('flex');
+        };
+
+        window.toggleMobileMenu = function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        };
+
+        window.showToast = function(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => { toast.classList.add('hidden'); }, 3500);
+        };
+
         window.onload = function() {
-            initBioCanvas();
+            checkExistingSession();
         };
     </script>
 </body>
